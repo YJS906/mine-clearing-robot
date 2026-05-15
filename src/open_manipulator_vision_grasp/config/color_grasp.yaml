@@ -56,9 +56,23 @@ color_grasp_moveit:
     close_gripper_target: close
     approach_height_m: 0.06
     grasp_height_m: 0.015
-    lift_height_m: 0.08
+    lift_height_m: 0.20
+    lift_wait_sec: 1.0
+    use_joint_lift_pose: true
+    lift_joint1_rad: -1.4835298642
+    lift_joint2_rad: -0.1919862177
+    lift_joint3_rad: -0.4712388980
+    lift_joint4_rad: 2.181661565
+    cartesian_eef_step_m: 0.01
+    cartesian_jump_threshold: 0.0
+    cartesian_min_fraction: 0.9
+    assume_close_after_timeout: true
+    close_gripper_timeout_sec: 1.5
+    use_custom_close_position: true
+    close_gripper_joint_name: gripper_left_joint
+    close_gripper_joint_position_m: 0.0045
     position_tolerance_m: 0.02
     orientation_tolerance_rad: 0.25
     max_target_radius_m: 0.36
-    min_target_z_m: 0.01
+    min_target_z_m: -0.20
     max_target_z_m: 0.28

@@ -11,6 +11,8 @@ ROS 2 Humble workspace notes for using an Orbbec/Astra depth camera mounted near
   - `/vision/debug_image`
 - `/pick_latest_target` triggers one manual pick attempt.
 - The integrated launch starts hardware, MoveIt, camera, detector, and grasp node.
+- The gripper close step can use a softer custom close position and timeout-based completion.
+- After grasping, the arm can move to a configured post-grasp joint lift pose.
 - The calibrated camera transform currently uses:
   - `camera_y = -0.12`
   - `camera_yaw = -1.57079632679`
@@ -78,6 +80,30 @@ ros2 service call /pick_latest_target std_srvs/srv/Trigger {}
 ```
 
 Automatic picking can be enabled with `execute_on_target:=true`, but manual picking is safer while calibrating.
+
+## Gripper And Lift Tuning
+
+The close grip is intentionally not fully closed by default:
+
+```yaml
+use_custom_close_position: true
+close_gripper_joint_position_m: 0.0045
+close_gripper_timeout_sec: 1.5
+```
+
+For a weaker grip, increase `close_gripper_joint_position_m`. For a stronger grip, decrease it.
+
+The post-grasp lift uses a configured joint pose by default:
+
+```yaml
+use_joint_lift_pose: true
+lift_joint1_rad: -1.4835298642
+lift_joint2_rad: -0.1919862177
+lift_joint3_rad: -0.4712388980
+lift_joint4_rad: 2.181661565
+```
+
+Set `use_joint_lift_pose: false` to use the Cartesian z-lift fallback.
 
 ## Notes
 
