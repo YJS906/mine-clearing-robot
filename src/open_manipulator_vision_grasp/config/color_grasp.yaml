@@ -1,0 +1,64 @@
+detect_color_object:
+  ros__parameters:
+    color_topic: /camera/color/image_raw
+    depth_topic: /camera/depth/image_raw
+    camera_info_topic: /camera/depth/camera_info
+    output_frame: link1
+    target_pose_topic: /vision/target_pose
+    marker_topic: /vision/target_marker
+    debug_image_topic: /vision/debug_image
+    min_depth_m: 0.12
+    max_depth_m: 0.20
+    min_area_px: 500.0
+    sample_radius_px: 5
+    # Default: red objects. Tune with rqt_reconfigure/ros2 param for your object.
+    hsv_lower: [0, 80, 60]
+    hsv_upper: [12, 255, 255]
+    target_orientation_xyzw: [0.0, 0.0, 0.0, 1.0]
+
+detect_depth_object:
+  ros__parameters:
+    depth_topic: /camera/depth/image_raw
+    camera_info_topic: /camera/depth/camera_info
+    output_frame: link1
+    target_pose_topic: /vision/target_pose
+    marker_topic: /vision/target_marker
+    debug_image_topic: /vision/debug_image
+    min_depth_m: 0.12
+    max_depth_m: 0.20
+    closest_band_m: 0.04
+    min_area_px: 400.0
+    shape_filter_enabled: true
+    min_aspect_ratio: 0.8
+    max_aspect_ratio: 2.4
+    min_extent: 0.45
+    max_extent: 0.90
+    min_solidity: 0.78
+    max_solidity: 0.99
+    min_bottom_to_top_width_ratio: 0.75
+    max_bottom_to_top_width_ratio: 1.80
+    min_width_profile_samples: 12
+    sample_radius_px: 5
+    roi_x: 0
+    roi_y: 0
+    roi_width: -1
+    roi_height: -1
+    target_orientation_xyzw: [0.0, 0.0, 0.0, 1.0]
+
+color_grasp_moveit:
+  ros__parameters:
+    target_pose_topic: /vision/target_pose
+    arm_group: arm
+    gripper_group: gripper
+    execute_on_target: false
+    auto_execute_cooldown_sec: 10.0
+    open_gripper_target: open
+    close_gripper_target: close
+    approach_height_m: 0.06
+    grasp_height_m: 0.015
+    lift_height_m: 0.08
+    position_tolerance_m: 0.02
+    orientation_tolerance_rad: 0.25
+    max_target_radius_m: 0.36
+    min_target_z_m: 0.01
+    max_target_z_m: 0.28

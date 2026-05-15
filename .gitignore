@@ -1,0 +1,9 @@
+build/
+install/
+log/
+local_debs/
+*.deb
+*.pyc
+__pycache__/
+.vscode/
+.ros/
