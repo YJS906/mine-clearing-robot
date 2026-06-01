@@ -1,16 +1,28 @@
+```html
+## Demo - Vision-Based Robotic Grasping
+
+OpenMANIPULATOR-X와 Depth Camera를 활용하여 물체를 인식하고, MoveIt 기반으로 로봇팔이 물체를 잡아 들어 올리는 시연 영상입니다.
+
+<p align="center">
+  <a href="https://youtu.be/ki21uMB1o9U">
+    <img src="https://img.youtube.com/vi/ki21uMB1o9U/hqdefault.jpg" width="900" alt="Vision-Based Robotic Grasping Demo">
+  </a>
+</p>
+
+<p align="center">
+  <b>Click the thumbnail to watch the demonstration video.</b>
+</p>
+
+---
+```
+
+
 # Mine Clearing Robot Vision Grasp
 
 OpenMANIPULATOR-X 로봇팔과 Orbbec/Astra depth camera를 이용해서 원기둥 형태의 물체, 예를 들어 종이컵 같은 물체를 인식하고 MoveIt 기반으로 집는 ROS 2 Humble 프로젝트입니다.
 
 현재 프로젝트는 depth image로 물체 위치를 추정하고, `/pick_latest_target` 서비스를 호출하면 로봇팔이 물체를 잡은 뒤 지정된 자세로 들어 올리는 동작까지 수행합니다.
 
-## Demo (YouTube Shorts)
-
-<a href="https://youtu.be/azZYgt5A1QA">
-  <img src="https://img.youtube.com/vi/grw7qH93KJ0/hqdefault.jpg" width="900">
-</a>
-
----
 
 ## 현재 동작 상태
 
